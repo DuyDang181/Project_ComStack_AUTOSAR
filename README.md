@@ -159,16 +159,16 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 
 
 ### 5.2: Đối với tín hiệu Engine status: Signal packed trace bằng breakpoint đến Driver thực tế sẽ được nạp vào mailbox của STM32F103
-- Các Signal được đóng gói và cập nhật theo chu kỳ 100ms cho ECU với giả định như sau:
-byte 0 byte 1: Engine RPM = 3000
-byte 2: Engine Temp = 90
-byte 3: Engine_TorqueActual = 100Nm
-byte 4: Engine State: 2_running
-byte 5: low nibble: alive counter
-        high nibble: CRC
-byte 6, byte 7: reserved
 
-![alt text](image.png)
+Các Signal được đóng gói và cập nhật theo chu kỳ 100ms cho ECU với giả định như sau: 
+- byte 0 byte 1: Engine RPM = 3000
+- byte 2: Engine Temp = 90
+- byte 3: Engine_TorqueActual = 100Nm
+- byte 4: Engine State: 2_running
+- byte 5: low nibble: alive counter, high nibble: CRC
+- byte 6, byte 7: reserved
+
+<img width="1552" height="1406" alt="image" src="https://github.com/user-attachments/assets/8a88f480-cb77-443b-a72e-5935e26efe1f" />
 
 
 
