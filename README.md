@@ -9,7 +9,7 @@ Dự án phát triển ECU dựa trên kiến trúc Microcontroller STM32F103C8T
 2. [Kiến trúc hệ thống](#2-kiến-trúc-hệ-thống)
 3. [Công cụ & Môi trường phát triển](#3-công-cụ--môi-trường-phát-triển)
 4. [Kiểm thử và xác minh](#4-kiểm-thử-và-xác-minh)
-5. [Kết quả](#5-kết-quả)
+5. [Kết quả kiểm thử](#5-kết-quả-debug)
 ---
 
 ## 1. Mô hình dự án
@@ -89,7 +89,7 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 * Theo dõi luồng thực thi bằng Breakpoint.
 * Kết hợp UART để in log phục vụ quá trình kiểm thử
 
-## 5. Kết quả_ Debug
+## 5. Kết quả debug
 ### 5.1: Đối với các dịch vụ Diagnositc: Data được trace bằng breakpoint đến Driver thực tế sẽ được nạp vào mailbox của STM32F103
 ### a. Service: Session Control - 0x1003:
 - Request:
@@ -125,7 +125,38 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 
 <img width="2564" height="1410" alt="image" src="https://github.com/user-attachments/assets/6642cfc4-3e52-4a58-b885-74548feafc6b" />
 
-- Response:
+- Response: RPM Engine giả lập đang là 3000
+
+<img width="1658" height="1409" alt="image" src="https://github.com/user-attachments/assets/9356d629-6391-4082-9401-9abd3d336766" />
+
+### b3. Service: ReadDataByIdentifier - 0x22: với DID đọc nhiệt độ Engine - 0x22 01 05
+- Request:
+
+<img width="2564" height="1406" alt="image" src="https://github.com/user-attachments/assets/f5466b0c-eed9-466f-a072-403529465ab3" />
+
+- Response: Temperature Engine đang giả lập từ COM là 90 (0x5a)
+
+<img width="1613" height="1406" alt="image" src="https://github.com/user-attachments/assets/99a66251-81c8-4615-9ac9-9e1dc8aea604" />
+
+### b4. Service: ReadDTCInformation - 0x19 02 FF: 
+
+- Request:
+
+<img width="2564" height="1407" alt="image" src="https://github.com/user-attachments/assets/c821253d-4564-4218-aad7-f3e616fd7ffa" />
+
+- Response: DTC giả lập đang được response từ ECU khách hàng.
+
+
+<img width="1551" height="1409" alt="image" src="https://github.com/user-attachments/assets/d1bffc26-a478-4082-bf89-69b46350dd2c" />
+
+-> Nhận các CF tiếp theo:
+
+<img width="1720" height="1407" alt="image" src="https://github.com/user-attachments/assets/d302f407-31dc-44f2-b152-71c74aa87fec" />
+
+<img width="1534" height="1406" alt="image" src="https://github.com/user-attachments/assets/8c58ba8b-715a-48d6-a50b-8999c1a848f4" />
+
+<img width="1517" height="1407" alt="image" src="https://github.com/user-attachments/assets/701c9217-d93c-47f4-955e-81409c67e6b6" />
+
 
 
 
