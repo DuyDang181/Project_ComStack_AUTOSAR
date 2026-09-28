@@ -90,6 +90,46 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 * Kết hợp UART để in log phục vụ quá trình kiểm thử
 
 ## 5. Kết quả_ Debug
+### 5.1: Đối với các dịch vụ Diagnositc: Data được trace bằng breakpoint đến Driver thực tế sẽ được nạp vào mailbox của STM32F103
+### a. Service: Session Control - 0x1003:
+- Request:
+<img width="1410" height="1410" alt="image" src="https://github.com/user-attachments/assets/6e5a6c66-8e85-4b6b-b0e5-91b237a62bf0" />
+<img width="2564" height="1406" alt="image" src="https://github.com/user-attachments/assets/5e3c49d7-2069-4821-96d3-9006a21f37a9" />
+
+- Response: 
+<img width="2564" height="1411" alt="image" src="https://github.com/user-attachments/assets/afc81073-1af3-463f-83fc-055dcea889c0" />
+
+
+### b1. Service: ReadDataByIdentifier - 0x22: với DID đọc VIN - 0x22 F1 90
+- Request:
+<img width="1547" height="1409" alt="image" src="https://github.com/user-attachments/assets/5e4ba2b4-d7ec-4dec-a22a-7af79687fb27" />
+
+<img width="2564" height="1411" alt="image" src="https://github.com/user-attachments/assets/5e84e76e-5e65-4c67-97ff-de0795f57442" />
+
+
+
+- Response:
+  + Nhận FF:
+
+<img width="1523" height="1406" alt="image" src="https://github.com/user-attachments/assets/a09af863-eadb-4afc-a39e-b0e9da328bda" />
+
+
+  + Nhận đầy đủ các CF:
+
+<img width="1402" height="1411" alt="image" src="https://github.com/user-attachments/assets/28add504-a1f1-493a-8bd9-ccb3be5b2f57" />
+
+<img width="1425" height="1412" alt="image" src="https://github.com/user-attachments/assets/77d5cd58-09e7-4170-ae8b-ba9b9d0c4852" />
+
+### b2. Service: ReadDataByIdentifier - 0x22: với DID đọc tốc độ Engine - 0x22 01 0C
+- Request:
+
+<img width="2564" height="1410" alt="image" src="https://github.com/user-attachments/assets/6642cfc4-3e52-4a58-b885-74548feafc6b" />
+
+- Response:
+
+
+
+
 
 
 ## Author
