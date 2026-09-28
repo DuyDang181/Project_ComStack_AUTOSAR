@@ -439,7 +439,7 @@ int main(void)
         if (tick_count >= 200)
         {
             tick_count = 0;
-            Diag_Send_SessionControl();
+            Diag_Send_ReadDTCInformation();
         }
 
         /* ---- Polling main functions ---- */
