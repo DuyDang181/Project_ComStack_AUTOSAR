@@ -1,5 +1,5 @@
 # Project_ComStack_AUTOSAR
-Mục tiêu của dự án là nghiên cứu và phát triển ECU dựa trên kiến trúc Layered - AUTOSAR Classic Platform với module COM. Mô tả Data Path qua từng Layer từ đó phát triển các dịch vụ Diagnostic gửi các Request chẩn đoán đến eVCU của Khách hàng. 
+Mục tiêu của dự án là nghiên cứu và phát triển ECU dựa trên kiến trúc Layered - AUTOSAR Classic Platform với module COM. Mô tả Data Path qua từng Layer từ đó phát triển các dịch vụ Diagnostic gửi các Request chẩn đoán đến eVCU của Khách hàng.
 Dự án phát triển ECU dựa trên kiến trúc Microcontroller STM32F103C8T6 Bulepill
 > Đây là dự án nghiên cứu và học tập, phát triển Porfolio cá nhân. Dự án sẽ không tuân thủ đầy đủ các Standard trong kiến trúc AUTOSAR Classic Platform cũng như ISO 26262,...
 
@@ -31,7 +31,7 @@ Thành phần dự án:
 DiagECU/
 ├── .vscode/               # Cấu hình Workspace VS Code
 
-├── BSW/                   
+├── BSW/
 │   ├── Common/            # Định nghĩa các kiểu dữ liệu chuẩn dùng chung (Std_Types, ComStack_Types)
 │   ├── EcuAbstraction/    # Trừu tượng ECU (Chứa CanIf, CanTp, LinIf)
 │   ├── Mcal/              # Trừu tượng vi điều khiển (Chứa Driver CAN, LIN)
@@ -40,15 +40,15 @@ DiagECU/
 ├── Config/                # File cấu hình từng module: CanIf_Cfg, PduR_Cfg,...
 │
 ├── Platform/              # Mô tả nền tảng phần cứng
-│   ├── Bsp/               
-│   ├── Debug/             
+│   ├── Bsp/
+│   ├── Debug/
 │   └── Spl/               # Thư viện SPL của STM32F103 (Standard Peripheral Library)
 │
-├── Script/                # Chứa script (.resc) định nghĩa môi trường và mạng CAN ảo cho Renode      
+├── Script/                # Chứa script (.resc) định nghĩa môi trường và mạng CAN ảo cho Renode
 │
 ├── build/                 # Các file biên dịch object (.o) và file thực thi (.elf, .bin, .hex)
 │
-├── main.c                 
+├── main.c
 ├── Makefile               # Hỗ trợ biên dịch bằng GCC
 ├── stm32f103.ld           # Định nghĩa phân vùng nhớ (Flash/RAM) cho STM32F103
 └── startup_stm32f103.s    # Chứa mã khởi động (Vector Table, Reset Handler)
@@ -59,25 +59,25 @@ DiagECU/
 ## 2. Kiến trúc hệ thống
 
 * **Application (SWC):** Chứa các Software Components thực thi logic (Diagnostic, Engine Status).
-* **Services Layer:** 
+* **Services Layer:**
     * **COM (Communication):** Đóng gói/giải nén và điều phối việc truyền/nhận các tín hiệu mạng định kỳ (Signals/I-PDUs).
     * **DCM (Diagnostic Communication Manager):** Tiếp nhận, phân luồng dịch vụ chẩn đoán UDS và Parse các gói tin phản hồi.
     * **PduR (PDU Router):** Định tuyến luồng dữ liệu (PDU) giữa các module giao tiếp như COM, DCM và các giao thức phần cứng.
-* **ECU Abstraction & MCAL:** 
+* **ECU Abstraction & MCAL:**
     * **CanIf, CanTp:** Phân mảnh/hợp nhất các khung giao tiếp CAN độ dài lớn (ISO-TP).
-    * **MCAL (CAN, GPIO, v.v.):** Các Driver điều khiển trực tiếp thanh ghi vi điều khiển STM32F103. 
+    * **MCAL (CAN, GPIO, v.v.):** Các Driver điều khiển trực tiếp thanh ghi vi điều khiển STM32F103.
 
 ## 3. Công cụ & Môi trường phát triển
 1. **Vi điều khiển & Thư viện**: Sử dụng vi điều khiển STM32F103. Sử dụng thư viện SPL (Standard Peripheral Library)
 
 3. **Trình biên dịch (Compiler):** Sử dụng bộ biên dịch GNU Arm Embedded Toolchain (`arm-none-eabi-gcc`).
-   
+
 5. **Hệ thống Build:** Quản lý quá trình biên dịch bằng `Makefile`. Định nghĩa cấu trúc, tự động việc tạo file thực thi (`.elf`).
-   
+
 7. **Mô phỏng phần cứng:** Ứng dụng Renode để giả lập môi trường thực thi đa vi điều khiển. Thiết lập mạng CAN ảo (CAN Hub) kết nối đồng thời 3 Node độc lập (eVCU, DiagECU, COMECU).
-   
+
 9. **Gỡ lỗi (Debugger)**: Sử dụng GDB (`arm-none-eabi-gdb`) thông qua extension Cortex-Debug. GDB kết nối trực tiếp vào các cổng mạng (port 3333, 3334, 3335).
-    
+
 11. **Môi trường (IDE)**: Visual Studio Code.
 
 
@@ -96,7 +96,7 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 <img width="1410" height="1410" alt="image" src="https://github.com/user-attachments/assets/6e5a6c66-8e85-4b6b-b0e5-91b237a62bf0" />
 <img width="2564" height="1406" alt="image" src="https://github.com/user-attachments/assets/5e3c49d7-2069-4821-96d3-9006a21f37a9" />
 
-- Response: 
+- Response:
 <img width="2564" height="1411" alt="image" src="https://github.com/user-attachments/assets/afc81073-1af3-463f-83fc-055dcea889c0" />
 
 
@@ -138,7 +138,7 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 
 <img width="1613" height="1406" alt="image" src="https://github.com/user-attachments/assets/99a66251-81c8-4615-9ac9-9e1dc8aea604" />
 
-### b4. Service: ReadDTCInformation - 0x19 02 FF: 
+### b4. Service: ReadDTCInformation - 0x19 02 FF:
 
 - Request:
 
@@ -158,7 +158,17 @@ Hệ thống được kiểm tra thông qua nhiều phương pháp:
 <img width="1517" height="1407" alt="image" src="https://github.com/user-attachments/assets/701c9217-d93c-47f4-955e-81409c67e6b6" />
 
 
+### 5.2: Đối với tín hiệu Engine status: Signal packed trace bằng breakpoint đến Driver thực tế sẽ được nạp vào mailbox của STM32F103
+- Các Signal được đóng gói và cập nhật theo chu kỳ 100ms cho ECU với giả định như sau:
+byte 0 byte 1: Engine RPM = 3000
+byte 2: Engine Temp = 90
+byte 3: Engine_TorqueActual = 100Nm
+byte 4: Engine State: 2_running
+byte 5: low nibble: alive counter
+        high nibble: CRC
+byte 6, byte 7: reserved
 
+![alt text](image.png)
 
 
 
