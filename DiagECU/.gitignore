@@ -1,0 +1,15 @@
+# Build outputs
+build/
+*.elf
+*.bin
+*.hex
+*.map
+*.o
+
+# Renode and Application Logs
+tool/logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

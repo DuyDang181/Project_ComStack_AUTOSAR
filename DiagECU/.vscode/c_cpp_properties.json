@@ -1,0 +1,51 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "DiagECU",
+      "includePath": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/BSW/Common",
+        "${workspaceFolder}/BSW/Services/Com",
+        "${workspaceFolder}/BSW/Services/Dcm",
+        "${workspaceFolder}/BSW/Services/PduR",
+        "${workspaceFolder}/BSW/EcuAbstraction/CanIf",
+        "${workspaceFolder}/BSW/EcuAbstraction/CanTp",
+        "${workspaceFolder}/BSW/EcuAbstraction/LinIf",
+        "${workspaceFolder}/BSW/Mcal/Can",
+        "${workspaceFolder}/BSW/Mcal/Lin",
+        "${workspaceFolder}/Config",
+        "${workspaceFolder}/Platform/Spl/inc",
+        "${workspaceFolder}/Platform/Spl/src",
+        "${workspaceFolder}/Platform/Bsp/cmsis"
+      ],
+      "defines": [
+        "USE_STDPERIPH_DRIVER",
+        "STM32F10X_MD"
+      ],
+      "compilerPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-arm",
+      "browse": {
+        "path": [
+          "${workspaceFolder}",
+          "${workspaceFolder}/BSW/Common",
+          "${workspaceFolder}/BSW/Services/Com",
+          "${workspaceFolder}/BSW/Services/Dcm",
+          "${workspaceFolder}/BSW/Services/PduR",
+          "${workspaceFolder}/BSW/EcuAbstraction/CanIf",
+          "${workspaceFolder}/BSW/EcuAbstraction/CanTp",
+          "${workspaceFolder}/BSW/EcuAbstraction/LinIf",
+          "${workspaceFolder}/BSW/Mcal/Can",
+          "${workspaceFolder}/BSW/Mcal/Lin",
+          "${workspaceFolder}/Config",
+          "${workspaceFolder}/Platform/Spl/inc",
+          "${workspaceFolder}/Platform/Spl/src",
+          "${workspaceFolder}/Platform/Bsp/cmsis"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      }
+    }
+  ]
+}
